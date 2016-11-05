@@ -32,7 +32,7 @@ import javax.ws.rs.core.MediaType;
  * 
  */
 @Stateless
-@Path("artikelbeheer")
+@Path("/Proberen/artikelbeheer")
 public class ArtikelBeheer {
     
     @EJB

@@ -105,10 +105,10 @@ function renderList(data) {
 
     $('#voorstellingList li').remove();
     $.each(list, function (index, artikel) {
-         $('#voorstellingList').append('<li>artikel.artikelnaam</li>');
-//        
-//        $('#voorstellingList').append('<li><a href="#" data-identity="'
-//                + artikel.artikelId + '">' + artikel.artikelnaam + '</a></li>');
+//         $('#voorstellingList').append('<li>artikel.artikelnaam</li>');
+       
+     $('#voorstellingList').append('<li><a href="#" data-identity="'
+              + artikel.artikelId + '">' + artikel.artikelnaam + '</a></li>');
     });
 }
 
@@ -135,9 +135,10 @@ function find(id) {
 }
 
 function addVoorstelling() {   
-    var formData = $('#voorstellingForm').serializeArray(); // (of $('form').serializeArray() kan ook)
+    var formData = $('form').serializeArray(); // (of $('#voorstellingForm').serializeArray() kan ook)
     $.ajax({
         type: "POST",
+        contentType: 'application/json',
         url: rootURL +'/artikelbeheer',
         data: formData,
         dataType: "json",
