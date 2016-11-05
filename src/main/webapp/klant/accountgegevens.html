@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO : accountgegevens</div>
+        <script>
+        function show(id) {
+            $.ajax({
+            method: "GET",
+            url: "http://localhost:44736/Proberen/klant/accountgegevens.html",            
+            dataType: "json",
+            success: function (data) {
+                klantgegevens = data;
+                renderDetails(klantgegevens);
+            }
+    });
+}
+
+ var account;
+ var klant;
+ var adres; 
+ 
+function renderDetails(klantgegevens) {
+    $('#accountid').val(account.accountId);
+    $('#username').val(acount.username);
+    $('#password').val(account.password);
+    $('#voornaam').val(klant.voornaam);
+    $('#tussenvoegsel').val(klant.tussenvoegsel);
+    $('#achternaam').val(klant.achternaam);
+    $('#email').val(account.email);
+    $('#straatnaam').val(adres.straatnaam);
+    $('#huisnummer').val(adres.huisnummer);
+    $('#toevoeging').val(adres.toevoeging);
+    $('#postcode').val(adres.postcode);
+    $('#woonplaats').val(adres.woonplaats);
+    $('#adrestype').val(adres.adrestype);
+}
+        
+       </script> 
+        <a href="../medewerker/artikelen.html">test link</a>
+    </body>
+</html>
