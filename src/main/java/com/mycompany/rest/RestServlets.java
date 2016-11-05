@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Wendy
  */
-@WebServlet(name = "RestServlets", loadOnStartup = 1, urlPatterns = {"/registratieKlant", 
-    "/login", "/artikelbeheer", "/artikelbeheer/*"})
+@WebServlet(name = "RestServlets", loadOnStartup = 1, urlPatterns = {"/Proberen/registratieKlant", 
+    "/Proberen/login", "/Proberen/artikelbeheer", "/Proberen/artikelbeheer/*"})
 public class RestServlets extends HttpServlet {
 
     
@@ -34,18 +34,22 @@ public class RestServlets extends HttpServlet {
         String userPath = request.getServletPath();
 
         // Send to artikelen 
-        if (userPath.equals("/artikelbeheer")) {
+        if (userPath.equals("/Proberen/artikelbeheer")) {
+            userPath = "/medewerker/artikelen";
+        }
+          // Send to artikelen 
+        if (userPath.equals("/Proberen/artikelbeheer/{artikelId}")) {
             userPath = "/medewerker/artikelen";
         }
         
         // Send to overzicht accountgegevens
-        else if (userPath.equals ("/registratieKlant")){
+        else if (userPath.equals ("/Proberen/registratieKlant")){
             userPath = "/klant/accountgegevens";
         }
         
         
          // Use RequestDispatcher to forward request internally
-        String url = "" + userPath + ".html";
+        String url = "/Proberen" + userPath + ".html";
 
         getRequestDispatcherAndForwardInternally(request, response, url);
         
